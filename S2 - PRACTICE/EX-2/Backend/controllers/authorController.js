@@ -3,7 +3,7 @@ const Book = require('../models/Book');
 
 // List all authors along with their books (include)
 // Endpoint: GET /api/authors
-listAllAuthorsWithBooks = async (req, res) => {
+const listAllAuthorsWithBooks = async (req, res) => {
   try {
     const authors = await Author.findAll({ include: [{ model: Book }] });
     res.json(authors);
@@ -14,7 +14,7 @@ listAllAuthorsWithBooks = async (req, res) => {
 
 // Fetch all books by a given author name
 // Endpoint: GET /api/authors/books-search?name=Kim Ang
-getBooksByAuthor = async (req, res) => {
+const getBooksByAuthor = async (req, res) => {
   try {
     const author = await Author.findOne({ where: { name: req.query.name } });
     if (!author) return res.status(404).json({ error: 'Author not found' });
@@ -28,7 +28,7 @@ getBooksByAuthor = async (req, res) => {
 
 // Create a new book for an existing author using .createBook()
 // Endpoint: POST /api/authors/:authorId/books
-addBookToAuthor = async (req, res) => {
+const addBookToAuthor = async (req, res) => {
   try {
     const author = await Author.findByPk(req.params.authorId);
     if (!author) return res.status(404).json({ error: 'Author not found' });
@@ -47,7 +47,7 @@ addBookToAuthor = async (req, res) => {
 
 // Get all books in the system
 // Endpoint: GET /api/authors/books
-getAllBooks = async (req, res) => {
+const getAllBooks = async (req, res) => {
   try {
     const books = await Book.findAll({ include: [{ model: Author, attributes: ['name'] }] });
     res.json(books);
@@ -58,7 +58,7 @@ getAllBooks = async (req, res) => {
 
 // Update a book's details
 // Endpoint: PUT /api/authors/books/:id
-updateBook = async (req, res) => {
+const updateBook = async (req, res) => {
   try {
     const book = await Book.findByPk(req.params.id);
     if (!book) return res.status(404).json({ error: 'Book not found' });
@@ -72,7 +72,7 @@ updateBook = async (req, res) => {
 
 // Delete a book from the system
 // Endpoint: DELETE /api/authors/books/:id
-deleteBook = async (req, res) => {
+const deleteBook = async (req, res) => {
   try {
     const book = await Book.findByPk(req.params.id);
     if (!book) return res.status(404).json({ error: 'Book not found' });
