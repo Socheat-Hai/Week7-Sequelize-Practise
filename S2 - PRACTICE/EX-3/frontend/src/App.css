@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+nav {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #4a90d9;
+  background: white;
+  color: #4a90d9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+nav button[data-active="true"] {
+  background: #4a90d9;
+  color: white;
+}
+
+nav button:hover {
+  background: #4a90d9;
+  color: white;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  padding: 0.6rem 1.5rem;
+  background: #4a90d9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #357abd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+.error {
+  color: #e74c3c;
+  margin-top: 0.5rem;
+}
+
+.success {
+  color: #27ae60;
+  margin-top: 0.5rem;
+}
+
+.result {
+  margin-top: 1.5rem;
+}
+
+.status-present { color: #27ae60; font-weight: 600; }
+.status-absent { color: #e74c3c; font-weight: 600; }
+.status-late { color: #f39c12; font-weight: 600; }
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.summary-card {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.summary-card .number {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.summary-card .label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.summary-card.total { border-left: 4px solid #4a90d9; }
+.summary-card.present { border-left: 4px solid #27ae60; }
+.summary-card.absent { border-left: 4px solid #e74c3c; }
+.summary-card.late { border-left: 4px solid #f39c12; }
