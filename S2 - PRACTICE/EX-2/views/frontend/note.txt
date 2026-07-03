@@ -1,0 +1,23 @@
+1. First install vite view 
+>> npm create vite@latest frontend -- --template react 
+
+2. Go to frontend folder then run: 
+>> npm run dev 
+
+3. Fix CORS in Express backend 
+Because React and Express run on different ports, add CORS.
+a. Install cors  
+>> npm install cors
+b. In app.js and server.js let config 
+In your backend main file, maybe app.js or server.js:
+
+    const express = require("express");
+    const cors = require("cors");
+
+    const app = express();
+
+    app.use(cors());
+    app.use(express.json());
+
+c. Run 
+>> node app.js
